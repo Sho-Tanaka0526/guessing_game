@@ -1,7 +1,12 @@
 use std::io;                                //入出力のioライブラリの取り込み
+use rand::Rng;                              //乱数生成クレートを導入する
 
 fn main() {
     println!("Guess the number!");          //画面に表示する
+
+    let secret_number = rand::thread_rng().gen_range(1..101);   //1から100の乱数を生成する
+
+    println!("The secret number is: {}", secret_number);    //秘密の数字は次の通り: {}  テスト用に表示する
 
     println!("Please input your guess.");   //数字を入力してください
 
