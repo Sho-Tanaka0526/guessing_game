@@ -7,7 +7,7 @@ fn main() {
 
     let secret_number = rand::thread_rng().gen_range(1..101);   //1から100の乱数を生成する
 
-    println!("The secret number is: {}", secret_number);    //秘密の数字は次の通り: {}  テスト用に表示する
+    //println!("The secret number is: {}", secret_number);    //秘密の数字は次の通り: {}  テスト用に表示する
 
     println!("Please input your guess.");   //数字を入力してください
 
