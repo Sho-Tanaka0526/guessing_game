@@ -7,21 +7,31 @@ fn main() {
 
     let secret_number = rand::thread_rng().gen_range(1..101);   //1から100の乱数を生成する
 
-    println!("The secret number is: {}", secret_number);    //秘密の数字は次の通り: {}  テスト用に表示する
+    //println!("The secret number is: {}", secret_number);    //秘密の数字は次の通り: {}  テスト用に表示する
 
-    println!("Please input your guess.");   //数字を入力してください
+    loop {
+        println!("Please input your guess.");   //数字を入力してください
 
-    let mut guess = String::new();          //ユーザの入力を格納する変数
+        let mut guess = String::new();          //ユーザの入力を格納する変数
 
-    io::stdin()                             //ユーザの入力を受け取る
-        .read_line(&mut guess)              //可変変数guessを使う
-        .expect("Failed to read line");     //行の読み込みに失敗しました
+        io::stdin()                             //ユーザの入力を受け取る
+            .read_line(&mut guess)              //可変変数guessを使う
+            .expect("Failed to read line");     //行の読み込みに失敗しました
 
-    println!("You gessed: {}", guess);      //次のように予想しました: {}
-    
-    match guess.cmp(&secret_number) {
-        Ordering::Less => println!("Too small!"),   //小さすぎ！
-        Ordering::Greater => println!("Too big!"),  //大きすぎ！
-        Ordering::Equal => println!("You win!"),    //やったね！
+        let guess: u32 = match guess.trim().parse() { //変数guessを定義する
+            Ok(num) => num,
+            Err(_) => continue,
+        };
+
+        println!("You gessed: {}", guess);      //次のように予想しました: {}
+        
+        match guess.cmp(&secret_number) {
+            Ordering::Less => println!("Too small!"),   //小さすぎ！
+            Ordering::Greater => println!("Too big!"),  //大きすぎ！
+            Ordering::Equal => {
+                println!("You win!");                   //やったね！
+                break;
+            }
+        }
     }
 }
