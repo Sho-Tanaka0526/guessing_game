@@ -1,6 +1,6 @@
 use std::io;                                //入出力のioライブラリの取り込み
 use rand::Rng;                              //乱数生成クレートを導入する
-use std::cmp::Ordering;                     //比較関数？
+use std::cmp::Ordering;                     //比較関数
 
 fn main() {
     println!("Guess the number!");          //画面に表示する
