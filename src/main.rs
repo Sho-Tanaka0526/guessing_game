@@ -5,7 +5,7 @@ use std::cmp::Ordering;                     //比較関数
 fn main() {
     println!("Guess the number!");          //画面に表示する
 
-    let secret_number = rand::thread_rng().gen_range(1..101);   //1から100の乱数を生成する
+    let secret_number = rand::thread_rng().gen_range(1..101);   //1から100の乱数を生成する[1-101)
 
     //println!("The secret number is: {}", secret_number);    //秘密の数字は次の通り: {}  テスト用に表示する
 
