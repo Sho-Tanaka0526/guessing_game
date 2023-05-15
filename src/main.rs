@@ -23,7 +23,7 @@ fn main() {
             Err(_) => continue,
         };
 
-        println!("You gessed: {}", guess);      //次のように予想しました: {}
+        println!("You guessed: {}", guess);      //次のように予想しました: {}
         
         match guess.cmp(&secret_number) {
             Ordering::Less => println!("Too small!"),   //小さすぎ！
